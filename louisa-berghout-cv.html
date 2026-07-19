@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Louisa Berghout — Agente administrative</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --ink:#EDE9E1;
+    --ink-dim:#B9B2A6;
+    --bg:#1C2321;
+    --bg-2:#242C29;
+    --thread:#C98A2C;
+    --thread-soft:#8A6A3A;
+    --line:#3A423E;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:96px 0 64px;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--thread);
+    margin:0 0 22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px;height:1px;
+    background:var(--thread);
+    display:inline-block;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(2.6rem,7vw,4.2rem);
+    line-height:1.02;
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+  }
+  .role{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.3rem;
+    color:var(--ink-dim);
+    margin:0 0 34px;
+    max-width:46ch;
+  }
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 22px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--ink-dim);
+  }
+  .contact-row a{color:var(--ink-dim);text-decoration:none;border-bottom:1px dotted var(--line);}
+  .contact-row a:hover{color:var(--thread);border-color:var(--thread);}
+
+  /* ---- Section shell ---- */
+  section{padding:52px 0;border-top:1px solid var(--line);}
+  .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--thread);
+    margin:0 0 24px;
+  }
+  h2.title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.7rem;
+    margin:0 0 20px;
+  }
+  p.lede{color:var(--ink-dim);max-width:58ch;font-size:1.02rem;}
+
+  /* ---- Stitched timeline ---- */
+  .stitch{
+    position:relative;
+    padding-left:34px;
+  }
+  .stitch::before{
+    content:"";
+    position:absolute;
+    left:7px;top:6px;bottom:6px;
+    width:0;
+    border-left:2px dashed var(--thread-soft);
+  }
+  .stitch-item{
+    position:relative;
+    padding-bottom:34px;
+  }
+  .stitch-item:last-child{padding-bottom:0;}
+  .stitch-item::before{
+    content:"";
+    position:absolute;
+    left:-34px; top:4px;
+    width:14px;height:14px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--thread);
+  }
+  .stitch-when{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--thread);
+    margin-bottom:4px;
+  }
+  .stitch-role{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.15rem;
+    margin:0 0 2px;
+  }
+  .stitch-org{color:var(--ink-dim);font-size:.92rem;margin:0 0 10px;}
+  .stitch-item ul{margin:0;padding-left:18px;color:var(--ink-dim);font-size:.95rem;}
+  .stitch-item li{margin-bottom:4px;}
+
+  /* ---- Grid facts ---- */
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px;}
+  @media (max-width:560px){.facts{grid-template-columns:1fr;}}
+  .fact dt{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--thread);margin-bottom:6px;
+  }
+  .fact dd{margin:0;color:var(--ink);font-size:.98rem;}
+  .fact dd span{color:var(--ink-dim);}
+
+  /* ---- Tags ---- */
+  .tags{display:flex;flex-wrap:wrap;gap:9px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    padding:6px 12px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    color:var(--ink-dim);
+    background:var(--bg-2);
+  }
+
+  /* ---- CTA ---- */
+  .cta{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;letter-spacing:.05em;
+    color:var(--bg);
+    background:var(--thread);
+    padding:13px 22px;
+    text-decoration:none;
+    border-radius:2px;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .cta:hover{background:#E0A040;transform:translateY(-1px);}
+  .cta:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+
+  footer{
+    padding:40px 0 80px;
+    color:var(--ink-dim);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Agente administrative · Tadjenanet, Algérie</p>
+    <h1>Louisa<br>Berghout</h1>
+    <p class="role">Chaque dossier a son fil conducteur — je m'assure qu'il ne se perde jamais.</p>
+    <div class="contact-row">
+      <a href="mailto:louisaberghout700@gmail.com">louisaberghout700@gmail.com</a>
+      <span>Ouverte à la relocalisation — Québec, Canada</span>
+    </div>
+  </div>
+
+  <section id="profil">
+    <p class="label">01 · Profil</p>
+    <h2 class="title">Une gestionnaire de terrain, pas de théorie</h2>
+    <p class="lede">
+      Depuis février 2025, j'assure la gestion administrative quotidienne d'un centre de formation professionnelle : accueil, dossiers, coordination inter-services.
+      En parallèle, je dirige depuis 2019 mon propre atelier — une expérience qui m'a appris à tenir une organisation de bout en bout, sans filet.
+      Je cherche aujourd'hui à mettre cette rigueur au service d'une structure au Québec ou ailleurs au Canada.
+    </p>
+  </section>
+
+  <section id="parcours">
+    <p class="label">02 · Parcours</p>
+    <h2 class="title">Fil du parcours</h2>
+    <div class="stitch">
+      <div class="stitch-item">
+        <div class="stitch-when">Depuis février 2025</div>
+        <div class="stitch-role">Agente administrative</div>
+        <div class="stitch-org">CFPA « Chahid Hammouche Bouzid » — Tadjenanet, Mila</div>
+        <ul>
+          <li>Suivi de dossiers et gestion documentaire</li>
+          <li>Accueil du public et des stagiaires</li>
+          <li>Coordination inter-services</li>
+        </ul>
+      </div>
+      <div class="stitch-item">
+        <div class="stitch-when">Depuis 2019</div>
+        <div class="stitch-role">Fondatrice & gérante — Bergh Atelier</div>
+        <div class="stitch-org">Atelier de broderie et de mode — Tadjenanet, Mila</div>
+        <ul>
+          <li>Gestion complète : production, clientèle, fournisseurs</li>
+          <li>Pilotage de machines industrielles et logiciels de digitalisation</li>
+        </ul>
+      </div>
+      <div class="stitch-item">
+        <div class="stitch-when">2019</div>
+        <div class="stitch-role">Assistante — secteur clinique</div>
+        <div class="stitch-org">Clinique privée, via agence — Algérie</div>
+        <ul>
+          <li>Assistance aux patients, soutien aux activités courantes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="details">
+    <p class="label">03 · En bref</p>
+    <h2 class="title">Détails utiles</h2>
+    <dl class="facts">
+      <div class="fact">
+        <dt>Formation</dt>
+        <dd>Niveau 3 — Comptabilité & Informatique <span>· Niveau 4 prévu sept. 2026</span></dd>
+      </div>
+      <div class="fact">
+        <dt>Français</dt>
+        <dd>Intermédiaire <span>· objectif B2, TEF/TCF mars 2027</span></dd>
+      </div>
+      <div class="fact">
+        <dt>Anglais</dt>
+        <dd>Notions de base</dd>
+      </div>
+      <div class="fact">
+        <dt>Disponibilité</dt>
+        <dd>Ouverte à la relocalisation</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="competences">
+    <p class="label">04 · Compétences</p>
+    <h2 class="title">Ce que j'apporte</h2>
+    <div class="tags">
+      <span class="tag">Gestion de dossiers</span>
+      <span class="tag">Accueil & service client</span>
+      <span class="tag">Organisation des priorités</span>
+      <span class="tag">Outils bureautiques</span>
+      <span class="tag">Autonomie</span>
+      <span class="tag">Gestion d'entreprise</span>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="label">05 · Contact</p>
+    <h2 class="title">Discutons</h2>
+    <p class="lede">Disponible pour un entretien, en personne ou à distance.</p>
+    <a class="cta" href="mailto:louisaberghout700@gmail.com">Écrire à Louisa ↗</a>
+  </section>
+
+  <footer>
+    Louisa Berghout · Tadjenanet, Mila, Algérie · Mise à jour juillet 2026
+  </footer>
+
+</div>
+</body>
+</html>
