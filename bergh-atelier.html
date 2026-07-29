@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bergh Atelier</title>
+<style>
+  body { margin:0; font-family: 'Georgia', serif; background:#f8f5f0; color:#3a2a1a; }
+  #gate { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#3a2a1a; color:#f8f5f0; padding:20px; text-align:center; }
+  #gate input { padding:12px; font-size:16px; border:none; border-radius:6px; margin-top:15px; width:80%; max-width:300px; }
+  #gate button { padding:12px 30px; margin-top:15px; background:#b8860b; color:#fff; border:none; border-radius:6px; font-size:16px; }
+  #content { display:none; }
+  header { background:#3a2a1a; color:#f8f5f0; padding:40px 20px; text-align:center; }
+  header h1 { margin:0; font-size:2em; letter-spacing:2px; }
+  header p { color:#b8860b; margin-top:10px; }
+  section { padding:40px 20px; max-width:700px; margin:0 auto; }
+  h2 { color:#b8860b; border-bottom:2px solid #b8860b; padding-bottom:8px; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:10px; }
+  .gallery div { background:#e0d5c5; height:140px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#8a7560; font-size:0.9em; }
+  footer { text-align:center; padding:30px; background:#3a2a1a; color:#f8f5f0; }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h2>برغوث للطرز — Bergh Atelier</h2>
+  <p>أدخلي كلمة السر للدخول</p>
+  <input type="password" id="pwd" placeholder="كلمة السر">
+  <button onclick="checkPwd()">دخول</button>
+  <p id="err" style="color:#ff8080; display:none;">كلمة السر غير صحيحة</p>
+</div>
+
+<div id="content">
+  <header>
+    <h1>Bergh Atelier</h1>
+    <p>Broderie & Design — Tadjenanet, Mila, Algérie</p>
+  </header>
+
+  <section>
+    <h2>À propos</h2>
+    <p>Bergh Atelier est un atelier de broderie et de mode fondé en 2019 à Tadjenanet. Nous travaillons avec des machines de broderie industrielle et des logiciels de digitalisation pour créer des designs sur mesure.</p>
+  </section>
+
+  <section>
+    <h2>Galerie</h2>
+    <div class="gallery">
+      <div>Photo 1</div>
+      <div>Photo 2</div>
+      <div>Photo 3</div>
+      <div>Photo 4</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Email : louisaberghout700@gmail.com</p>
+    <p>Localisation : Tadjenanet, Mila, Algérie</p>
+  </section>
+
+  <footer>© 2026 Bergh Atelier</footer>
+</div>
+
+<script>
+function checkPwd() {
+  var pwd = document.getElementById('pwd').value;
+  if (pwd === "atelier2026") {
+    document.getElementById('gate').style.display = "none";
+    document.getElementById('content').style.display = "block";
+  } else {
+    document.getElementById('err').style.display = "block";
+  }
+}
+</script>
+
+</body>
+</html>
